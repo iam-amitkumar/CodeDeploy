@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: /files/gunicorn.service
+    destination: /etc/systemd/system/
+  - source: /
+    destination: /home/ubuntu/ChatApp/
+permissions:
+  - object: /home/ubuntu/ChatApp
+    owner: root
+    group: root
+hooks:
+  BeforeInstall:
+    - location: scripts/clean_instance.sh
+      timeout: 300
+      runas: root
+      mode: 777
+  AfterInstall:
+    - location: scripts/installDependecies.sh
+      timeout: 300
+      runas: root
+      mode: 777
+    - location: scripts/startgunicorn.sh
+      timeout: 300
+      runas: root
+      mode: 777
