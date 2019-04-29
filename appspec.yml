@@ -4,9 +4,9 @@ files:
   - source: /files/gunicorn.service
     destination: /etc/systemd/system/
   - source: /
-    destination: /home/ubuntu/ChatApp/
+    destination: /home/ChatApp/
 permissions:
-  - object: /home/ubuntu/ChatApp
+  - object: /home/ChatApp
     owner: root
     group: root
 hooks:
