@@ -1,22 +1,21 @@
-# #!/bin/bash
-#sudo su
-#apt-get install python3-pip python3-dev nginx git -y
-#apt-get install virtualenv -y
-#virtualenv --python=python3 /home/venv
-##chown ubuntu:ubuntu /home/ubuntu/ChatApp-Django
-#source /home/venv/bin/activate
-#pip3 install -r /home/ChatApp/requirements.txt
-#pip3 install Django==2.1.3
-#pip3 install django-widget-tweaks==1.4.1
-#pip3 install djangorestframework==3.7.3
-#pip3 install pytz==2017.3
-#pip3 install python3-memcached
-#pip3 install django bcrypt django-extensions
-#pip3 install gunicorn
-#pip3 install django bcrypt django-extensions
-#cd /home/ChatApp
-#python3 manage.py collectstatic
-#python3 manage.py migrate
+#!/bin/bash
+sudo su
+apt-get install python3-pip python3-dev nginx git -y
+apt-get install virtualenv -y
+virtualenv --python=python3 /home/venv
+source /home/venv/bin/activate
+pip3 install -r /home/ChatApp/requirements.txt
+pip3 install Django==2.1.3
+pip3 install django-widget-tweaks==1.4.1
+pip3 install djangorestframework==3.7.3
+pip3 install pytz==2017.3
+pip3 install python3-memcached
+pip3 install django bcrypt django-extensions
+pip3 install gunicorn
+pip3 install django bcrypt django-extensions
+cd /home/ChatApp
+python3 manage.py collectstatic
+python3 manage.py migrate
 cp /home/ChatApp/files/gunicorn.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl start gunicorn
